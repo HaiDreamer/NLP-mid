@@ -1,0 +1,42 @@
+
+1.Data-clean:
+    Train: 1935
+    Validation: 569
+    Test: 281
+
+    Tổng:
+
+    1935 + 569 + 281 = 2785
+    Tính tỷ lệ
+
+    Tỷ lệ phần trăm:
+
+    Train
+    1935/2785 ≈ 69.5 %
+
+    Validation
+    569/2785 ≈ 20.4 %
+
+    Test
+    281/2785 ≈ 10.1%
+
+2.Data-preprocess
+    Train: 1897
+    Validation: 556
+    Test: 277
+
+    Tổng:
+
+    1897 + 556 + 277 = 2730
+    Tính tỷ lệ
+
+    Tỷ lệ phần trăm:
+
+    Train
+    1897/2730 ≈ 69.5 %
+
+    Validation
+    556/2730 ≈ 20.4 %
+
+    Test
+    277/2730 ≈ 10.1%

@@ -1,0 +1,16 @@
+import pandas as pd
+
+# train_normal = pd.read_csv("./dataset-normal-spam-scam/normal/Train/normal_train.csv")
+# train_spam = pd.read_csv("./dataset-normal-spam-scam/spam/train_clean.csv")
+# train_scam = pd.read_csv("./dataset-normal-spam-scam/Scam/train_scam_hybrid.csv")
+# train = pd.concat([train_normal, train_scam, train_spam], ignore_index=True)
+# valid_normal = pd.read_csv("./dataset-normal-spam-scam/normal/Validation/normal_val.csv")
+# valid_spam = pd.read_csv("./dataset-normal-spam-scam/spam/validation_clean.csv")
+# valid_scam = pd.read_csv("./dataset-normal-spam-scam/Scam/valid_scam_hybrid.csv")
+# valid = pd.concat([valid_normal, valid_scam, valid_spam], ignore_index=True)
+test_normal = pd.read_csv("./dataset-normal-spam-scam/normal/Test/normal_test.csv")
+test_spam = pd.read_csv("./dataset-normal-spam-scam/spam/test_clean.csv")
+test_scam = pd.read_csv("./dataset-normal-spam-scam/Scam/test_scam_hybrid.csv")
+test = pd.concat([test_normal, test_scam, test_spam], ignore_index=True)
+test = test.sample(frac=1).reset_index(drop=True)
+test.to_csv("test.csv", index=False)
