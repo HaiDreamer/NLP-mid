@@ -1,0 +1,35 @@
+1. Raw Dataset Collection and Merge(gather_data folder)
+    I loaded the original datasets from three categories:
+        - normal
+        - spam
+        - scam
+    Purpose: 
+        This step creates a single dataset with all classes mixed together.
+    Output file:
+        train.csv
+        valid.csv
+        test.csv
+    Each format
+        text, label(dạng float)
+
+2. Dataset Cleaning: 
+    Encoding handling, 
+    Column validation
+    Label normalization (convert float labels → integer, remove invalid labels, keep only valid classes(0,1,2))
+    HTML cleaning (Remove HTML artifacts such as: &amp; <b> <div>)
+    Remove empty or invalid text ()
+    Conflict detection
+
+
+3. Text Preprocessing
+    Lowercase conversion (purpose: normalize vocabulary)
+    URL Normalization (Replace URLs with a standard token, Ex: click here https://promo.com -> click here url  )
+    Email Address Normalization (Ex: contact support@gmail.com now -> contact email now)
+    Phone Number Normalization
+    Punctuation and Special Character Removal
+    Underscore Normalization
+    Whitespace normalization
+    Loại bỏ dòng rỗng
+
+4. Feature Extraction – TF-IDF Vectorization
+    This step transforms text data into numerical vectors that allow machine learning models to learn patterns for classifying messages into normal, spam, or scam categories.
