@@ -1,0 +1,81 @@
+CAMVOLT MIDTERM - MODEL COMPARISON (TF-IDF)
+Generated date: 2026-03-12
+
+1) Setup
+- Dataset files:
+  - train: E:\NLP-mid\dataset-preprocess\data-preprocess\train_ready.csv
+  - valid: E:\NLP-mid\dataset-preprocess\data-preprocess\valid_ready.csv
+  - test : E:\NLP-mid\dataset-preprocess\data-preprocess\test_ready.csv
+- Task: 3-class text classification (normal=0, spam=1, scam=2)
+- Shared feature extraction: TF-IDF (max_features=5000, ngram_range=(1,2), min_df=2)
+
+2) Compared models
+- Model A (main): Linear SVM, best C = 2.0
+- Model B (baseline): Logistic Regression, best C = 2.0
+
+3) Overall performance
+Validation set:
+- Linear SVM:
+  - accuracy=0.949033
+  - macro_precision=0.952631
+  - macro_recall=0.948381
+  - macro_f1=0.949728
+  - weighted_f1=0.949291
+- Logistic Regression:
+  - accuracy=0.940246
+  - macro_precision=0.947227
+  - macro_recall=0.939291
+  - macro_f1=0.941407
+  - weighted_f1=0.940710
+
+Test set:
+- Linear SVM:
+  - accuracy=0.918149
+  - macro_precision=0.920616
+  - macro_recall=0.917206
+  - macro_f1=0.918471
+  - weighted_f1=0.918648
+- Logistic Regression:
+  - accuracy=0.911032
+  - macro_precision=0.919332
+  - macro_recall=0.908497
+  - macro_f1=0.911636
+  - weighted_f1=0.911921
+
+Delta on test (Linear SVM - Logistic Regression):
+- accuracy: +0.007117
+- macro_f1: +0.006835
+- weighted_f1: +0.006727
+
+4) Per-class test metrics
+Linear SVM:
+- normal: precision=0.867925, recall=0.920000, f1=0.893204, support=100
+- spam  : precision=0.915663, recall=0.894118, f1=0.904762, support=85
+- scam  : precision=0.978261, recall=0.937500, f1=0.957447, support=96
+
+Logistic Regression:
+- normal: precision=0.833333, recall=0.950000, f1=0.887850, support=100
+- spam  : precision=0.935897, recall=0.858824, f1=0.895706, support=85
+- scam  : precision=0.988764, recall=0.916667, f1=0.951351, support=96
+
+5) Test confusion matrix
+Linear SVM:
+  true_normal: pred_normal=92, pred_spam=7, pred_scam=1
+  true_spam  : pred_normal=8,  pred_spam=76, pred_scam=1
+  true_scam  : pred_normal=6,  pred_spam=0,  pred_scam=90
+
+Logistic Regression:
+  true_normal: pred_normal=95, pred_spam=5, pred_scam=0
+  true_spam  : pred_normal=11, pred_spam=73, pred_scam=1
+  true_scam  : pred_normal=8,  pred_spam=0, pred_scam=88
+
+6) Conclusion
+- Recommended primary model: Linear SVM
+- Baseline model for comparison: Logistic Regression
+- Reason: Linear SVM gives higher macro F1 on both validation and test while using the same TF-IDF setup.
+
+7) Output file references
+- Linear SVM summary:
+  E:\NLP-mid\dataset-preprocess\data-preprocess\artifacts\linear_svm\summary.json
+- Logistic Regression summary:
+  E:\NLP-mid\dataset-preprocess\data-preprocess\artifacts\logistic_regression\summary.json
