@@ -1,0 +1,38 @@
+{
+  "model_name": "logistic_regression",
+  "best_c": 2.0,
+  "dataset_paths": {
+    "train": "E:\\NLP-mid\\dataset-preprocess\\data-preprocess\\train_ready.csv",
+    "valid": "E:\\NLP-mid\\dataset-preprocess\\data-preprocess\\valid_ready.csv",
+    "test": "E:\\NLP-mid\\dataset-preprocess\\data-preprocess\\test_ready.csv"
+  },
+  "vectorizer": {
+    "max_features": 5000,
+    "ngram_range": [
+      1,
+      2
+    ],
+    "min_df": 2,
+    "vocab_size": 5000
+  },
+  "class_names": {
+    "0": "normal",
+    "1": "spam",
+    "2": "scam"
+  },
+  "valid_metrics": {
+    "accuracy": 0.940246,
+    "macro_f1": 0.941407,
+    "macro_precision": 0.947227,
+    "macro_recall": 0.939291,
+    "weighted_f1": 0.94071
+  },
+  "test_metrics": {
+    "accuracy": 0.911032,
+    "macro_f1": 0.911636,
+    "macro_precision": 0.919332,
+    "macro_recall": 0.908497,
+    "weighted_f1": 0.911921
+  },
+  "model_file": "E:\\NLP-mid\\dataset-preprocess\\data-preprocess\\artifacts\\logistic_regression\\logistic_regression_model.joblib"
+}

@@ -1,0 +1,38 @@
+{
+  "model_name": "linear_svm",
+  "best_c": 2.0,
+  "dataset_paths": {
+    "train": "E:\\NLP-mid\\dataset-preprocess\\data-preprocess\\train_ready.csv",
+    "valid": "E:\\NLP-mid\\dataset-preprocess\\data-preprocess\\valid_ready.csv",
+    "test": "E:\\NLP-mid\\dataset-preprocess\\data-preprocess\\test_ready.csv"
+  },
+  "vectorizer": {
+    "max_features": 5000,
+    "ngram_range": [
+      1,
+      2
+    ],
+    "min_df": 2,
+    "vocab_size": 5000
+  },
+  "class_names": {
+    "0": "normal",
+    "1": "spam",
+    "2": "scam"
+  },
+  "valid_metrics": {
+    "accuracy": 0.949033,
+    "macro_f1": 0.949728,
+    "macro_precision": 0.952631,
+    "macro_recall": 0.948381,
+    "weighted_f1": 0.949291
+  },
+  "test_metrics": {
+    "accuracy": 0.918149,
+    "macro_f1": 0.918471,
+    "macro_precision": 0.920616,
+    "macro_recall": 0.917206,
+    "weighted_f1": 0.918648
+  },
+  "model_file": "E:\\NLP-mid\\dataset-preprocess\\data-preprocess\\artifacts\\linear_svm\\linear_svm_model.joblib"
+}

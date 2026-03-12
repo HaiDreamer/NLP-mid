@@ -1,0 +1,4 @@
+﻿,pred_normal,pred_spam,pred_scam
+true_normal,95,5,0
+true_spam,11,73,1
+true_scam,8,0,88
