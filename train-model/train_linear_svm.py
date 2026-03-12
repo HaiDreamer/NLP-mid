@@ -12,7 +12,8 @@ from sklearn.svm import LinearSVC
 
 LABEL_MAP = {0: "normal", 1: "spam", 2: "scam"}
 VALID_LABELS = sorted(LABEL_MAP.keys())
-BASE_DIR = Path(__file__).resolve().parent
+# BASE_DIR = Path(__file__).resolve().parent
+BASE_DIR = Path(r"D:\NLP-mid\dataset-preprocess\data-preprocess")
 MODEL_FILENAME = "linear_svm_model.joblib"
 
 
@@ -133,11 +134,11 @@ def main() -> None:
     x_test_text, y_test = load_dataset(args.test_path, "test")
 
     vectorizer = TfidfVectorizer(
-        max_features=args.max_features,
-        ngram_range=(1, 2),
-        min_df=args.min_df,
-        lowercase=False,
-        sublinear_tf=True,
+        max_features=args.max_features,         # keep at most x vocabulary features unigram/bigram
+        ngram_range=(1, 2),                     # use both unigrams(1 word/time) and bigrams(2 word/time)
+        min_df=args.min_df,                     # ignore words/phrases that appear in fewer than 2 documents
+        lowercase=False,                        # not force lowercase, because we setup lowercase at the beginning
+        sublinear_tf=True,                      # use logarithmic term frequency scaling    
     )
     x_train = vectorizer.fit_transform(x_train_text)
     x_valid = vectorizer.transform(x_valid_text)

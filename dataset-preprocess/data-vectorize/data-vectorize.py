@@ -49,6 +49,7 @@ def main():
     y_test = test_df["label"]
 
     # 3. TF-IDF vectorizer
+    # converting documents into a numeric feature matrix, then training a classifier on that matrix
     vectorizer = TfidfVectorizer(
         max_features=5000,
         ngram_range=(1, 2),
@@ -56,7 +57,7 @@ def main():
         lowercase=False
     )
 
-    # 4. Fit on train only
+    # 4. Fit on train only, avoid data leak
     X_train = vectorizer.fit_transform(X_train_text)
 
     # 5. Transform valid and test
