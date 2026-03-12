@@ -13,3 +13,6 @@ text,label
 "Check my channel for free gifts!!! http://...",1 
 
 # label every class: 1000 
+
+# folder to train model: dataset-preprocess/gather_data
+vectorize là trc khi train nó chuyển thành numerical vector
