@@ -147,10 +147,12 @@ def main() -> None:
     best_model = None
     best_valid_macro_f1 = -1.0
 
-    for c in args.c_values:
+    for c in args.c_values:     # c: regularization strength
+        # solver: for multinomial logistic regression model that handles the classes jointly
         model = LogisticRegression(C=c, max_iter=3000, solver="lbfgs", random_state=42)
         model.fit(x_train, y_train)
         valid_pred = model.predict(x_valid)
+        # macro_f1 = (F1_normal + F1_spam + F1_scam) / 3
         valid_macro_f1 = f1_score(y_valid, valid_pred, average="macro")
         if valid_macro_f1 > best_valid_macro_f1:
             best_valid_macro_f1 = valid_macro_f1

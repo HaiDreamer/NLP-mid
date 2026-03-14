@@ -133,6 +133,9 @@ def main() -> None:
     x_valid_text, y_valid = load_dataset(args.valid_path, "valid")
     x_test_text, y_test = load_dataset(args.test_path, "test")
 
+    # why both unigram ans bigrams ? unigrams capture strong single-token signals like free, refund, bank, urgent
+    #           bigrams capture short phrases like click here, limited time, account locked
+
     vectorizer = TfidfVectorizer(
         max_features=args.max_features,         # keep at most x vocabulary features unigram/bigram
         ngram_range=(1, 2),                     # use both unigrams(1 word/time) and bigrams(2 word/time)
@@ -148,7 +151,7 @@ def main() -> None:
     best_model = None
     best_valid_macro_f1 = -1.0
 
-    for c in args.c_values:
+    for c in args.c_values:     # choosing best c, making fewer training errors, keeping the decision boundary simpler / more regularized
         model = LinearSVC(C=c, random_state=42)
         model.fit(x_train, y_train)
         valid_pred = model.predict(x_valid)
@@ -160,7 +163,7 @@ def main() -> None:
 
     if best_model is None:
         raise RuntimeError("Linear SVM training failed")
-
+    
     valid_pred = best_model.predict(x_valid)
     test_pred = best_model.predict(x_test)
     valid_metrics = evaluate_split(y_valid, valid_pred, "valid", args.output_dir)

@@ -33,12 +33,12 @@ def load_dataset(path, name="dataset"):
 
 
 def main():
-    # 1. Load datasets
+    # Load datasets
     train_df = load_dataset(TRAIN_PATH, "train")
     valid_df = load_dataset(VALID_PATH, "valid")
     test_df = load_dataset(TEST_PATH, "test")
 
-    # 2. Split text and label
+    # Split text and label
     X_train_text = train_df["text"]
     y_train = train_df["label"]
 
@@ -48,7 +48,7 @@ def main():
     X_test_text = test_df["text"]
     y_test = test_df["label"]
 
-    # 3. TF-IDF vectorizer
+    # TF-IDF vectorizer
     # converting documents into a numeric feature matrix, then training a classifier on that matrix
     vectorizer = TfidfVectorizer(
         max_features=5000,
@@ -57,14 +57,14 @@ def main():
         lowercase=False
     )
 
-    # 4. Fit on train only, avoid data leak
+    # Fit on train only, avoid data leak
     X_train = vectorizer.fit_transform(X_train_text)
 
-    # 5. Transform valid and test
+    # Transform valid and test
     X_valid = vectorizer.transform(X_valid_text)
     X_test = vectorizer.transform(X_test_text)
 
-    # 6. Print information
+    # Print information
     print("TF-IDF vectorization completed.\n")
 
     print("Train TF-IDF shape:", X_train.shape)
@@ -81,7 +81,7 @@ def main():
     print("First 30 features:")
     print(feature_names[:30])
 
-    # Optional: inspect first sample
+    # inspect first sample
     print("\nFirst training text:")
     print(X_train_text.iloc[0])
 
