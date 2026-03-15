@@ -110,7 +110,7 @@ def predict_text(text: str, vectorizer, classifier, label_map):
     return pred_id, pred_name, ranked_df
 
 
-# ---------- UI ----------
+# UI 
 st.title("🧠 Text Classification Demo")
 st.caption("Enter text below and get the predicted class from trained Linear SVM model.")
 

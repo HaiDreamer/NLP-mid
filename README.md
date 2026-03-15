@@ -65,8 +65,8 @@ python dataset-preprocess/data-preprocess/train_logistic_regression.py
 ```
 
 # Use model/demo
-Run: app_demo.py for app use or demo.py for use model directly
-Note: only available for svm model
+- Run: app_demo.py for app use or demo.py for use model directly
+- Note: only available for svm model
 
 # Limitation
 Limited dataset
